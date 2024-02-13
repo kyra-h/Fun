@@ -1,0 +1,37 @@
+import pygame
+from sys import exit
+
+# starts pygame
+pygame.init() 
+screen = pygame.display.set_mode((800, 500)) # make a screen
+pygame.display.set_caption('Go Go Goose!') # name window
+clock = pygame.time.Clock() # make clock object
+
+game_running = False
+sky_sur = pygame.image.load('')
+ground_sur = pygame.image.load('')
+ground_rect = ground_sur.get_rect(topleft = (0, 150))
+goose_sur = pygame.image.load('').convert_alpha()
+goose_rect = goose_sur.get_rect(midbottom = (80, 150))
+goose_g = 0
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+        if game_running:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE and goose_rect.bottom >= 150:
+                    player_gravity = -20
+        else:
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                game_running = True
+
+    if game_running:
+        screen.blit(sky_sur,(0.0))
+        screen.blit(ground_sur)(0, 150)
+        screen.blit(goose_sur) ()
+
+    pygame.display.update()
+    clock.tick(50) # no faster than 50 fps
