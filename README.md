@@ -1,3 +1,3 @@
 # fun things 
 
-- gogogoose -- run GoGoGoose/goosegame4.py
+- GoGoGoose: to run: GoGoGoose/goosegame.py
